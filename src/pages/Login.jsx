@@ -3,12 +3,16 @@ import { supabase } from "../supabase";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  // 양식에서 입력할 이메일, 비밀번호 값을 useState로 관리한다
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // 로딩 중일 때 버튼을 비활성화하는 역할
   const [loading, setLoading] = useState(false);
+  // 로그인/회원가입 시 오류가 발생하면 사용자에게 메시지를 보냄
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // handleSignIn: 로그인 처리함수
   const handleSignIn = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -28,6 +32,7 @@ const Login = () => {
     setLoading(false);
   };
 
+  // handleSignUp: 회원가입 처리함수
   const handleSignUp = async () => {
     setLoading(true);
     setError("");
